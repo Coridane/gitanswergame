@@ -16,7 +16,7 @@ var standardQue = [
     ],        
 },
 {
-    question: "<a href>... <img src>... href and src are both:",
+    question: "a href and img src - href and src are both:",
     answers: [
         { text: "attributes", correct: true },
         { text: "classes", correct: false },
@@ -27,19 +27,19 @@ var standardQue = [
 {
     question: "What is the parent and child elements necessary for a bulleted list?",
     answers: [
-        { text: "parent: <li> child: <ol>", correct: false },
-        { text: "parent: <li> child: <ul>", correct: false },
-        { text: "parent: <ol> child: <li>", correct: false },
-        { text: "parent: <ul> child: <li>", correct: true },
+        { text: "parent: li child: ol", correct: false },
+        { text: "parent: li child: ul", correct: false },
+        { text: "parent: ol child: li", correct: false },
+        { text: "parent: ul child: li", correct: true },
     ],        
 },
 {
-    question: "How do you comment out something in HTML, CSS, and Javascript?",
+    question: "How do you comment out something in Javascript?",
     answers: [
-        { text: "HTML: /* This */, CSS: <!-- This -->, JavaScript: // This", correct: false },
-        { text: "HTML: <!-- This -->, CSS: /* This */, JavaScript: // This", correct: true },
-        { text: "HTML: // This, CSS: /* This */, JavaScript: <!-- This -->", correct: false },
-        { text: "HTML: <!-- This -->, CSS: // This, JavaScript: /* This */", correct: false },
+        { text: "/* This */", correct: false },
+        { text: "// This", correct: true },
+        { text: "-- This --", correct: false },
+        { text: "** This **", correct: false },
     ],        
 },
 {
@@ -63,19 +63,19 @@ var standardQue = [
 {
     question: "What is true about local variables?",
     answers: [
-        { text: "They are declared within a Javascript function and available to other functions.", correct: false },
+        { text: "They are declared within a Javascript function and available to functions in un-connected parents.", correct: false },
         { text: "They are declared within a Javascript function and saved locally.", correct: false },
         { text: "They are declared outside of any Javascript functions and saved locally.", correct: false },
-        { text: "They are declared within a Javascript function and not available to other functions.", correct: true },
+        { text: "They are declared within a Javascript function and not available to functions in other un-connected parents.", correct: true },
     ],        
 },
 {
     question: "How do you include quotes within a string?",
     answers: [
         { text: "Put a | before the double quotes.", correct: false },
-        { text: "Put a \ before the double quotes.", correct: true },
+        { text: "Put a backslash before the double quotes.", correct: true },
         { text: "Put an ! before the double quotes.", correct: false },
-        { text: "Put a - before the double quotes.", correct: false },
+        { text: "Put a -- before the double quotes.", correct: false },
     ],        
 },
 {
@@ -83,7 +83,7 @@ var standardQue = [
     answers: [
         { text: "margins", correct: true },
         { text: "padding", correct: false },
-        { text: "border ridges", correct: false },
+        { text: "border-ridges", correct: false },
         { text: "border-sides", correct: false },
     ],        
 },
@@ -134,7 +134,7 @@ console.log("Standard Questions:", quizQuestions)
 
 var bonusQue = [
     {
-    question: "What does CSS stand for?",
+    question: "BONUS: What does CSS stand for?",
     answers: [
         { text: "Cleaner Style Sheets", correct: false },
         { text: "Consolidated Style Sheets", correct: false },
@@ -143,7 +143,7 @@ var bonusQue = [
     ],        
 },
 {
-    question: "How many pets does Spencer have (not including the pets in Visual Studio)?",
+    question: "BONUS: How many pets does Spencer have (not including the pets in Visual Studio)?",
     answers: [
         { text: "2", correct: false },
         { text: "4", correct: false },
@@ -152,7 +152,7 @@ var bonusQue = [
     ],        
 },
 {
-    question: "When testing or troubleshooting, this is a good command to run:",
+    question: "BONUS: When testing or troubleshooting, this is a good command to run:",
     answers: [
         { text: "console.look()", correct: false },
         { text: "console.listen()", correct: false },
@@ -161,7 +161,7 @@ var bonusQue = [
     ],        
 },
 {
-    question: "What allows JavaScript to change styles while the user is on the page?",
+    question: "BONUS: What allows JavaScript to change styles while the user is on the page?",
     answers: [
         { text: "Cascading Java Sheets (CJS)", correct: false },
         { text: "Document Object Model (DOM)", correct: true },
@@ -170,7 +170,7 @@ var bonusQue = [
     ],        
 },
 {    
-    question: "If I want to store the user's name (userName) in local storage under a field called lastLogin:",
+    question: "BONUS: If I want to store the user's name (userName) in local storage under a field called lastLogin:",
     answers: [
         { text: "localStorage.getItem(\"lastLogin\", userName)", correct: false },
         { text: "localStorage.setItem(\"lastLogin\", userName)", correct: true },
@@ -179,7 +179,7 @@ var bonusQue = [
     ],        
 },
 {
-    question: "If I have an array with [\"A,\" \"B\", \"C\", \"D\"], what is in index 3?",
+    question: "BONUS: If I have an array with [\"A,\" \"B\", \"C\", \"D\"], what is in index 3?",
     answers: [
         { text: "A", correct: false },
         { text: "B", correct: false },
@@ -188,7 +188,7 @@ var bonusQue = [
     ],        
 },
 {
-    question: "When writing the condition in an IF statement, you put what will happen if the condition is true. After what word do you put what happens if the condition is false?",
+    question: "BONUS: When writing the condition in an IF statement, you put what will happen if the condition is true. After what word do you put what happens if the condition is false?",
     answers: [
         { text: "OR", correct: false },
         { text: "BUT", correct: false },
@@ -197,7 +197,7 @@ var bonusQue = [
     ],        
 },
 {
-    question: "If I want to ensure that the form is filled out:",
+    question: "BONUS: If I want to ensure that the form is filled out:",
     answers: [
         { text: "if (x = \"\") alert(\"Try again\")", correct: false },
         { text: "if (x == <>) alert(\"Try again\")", correct: false },
@@ -206,7 +206,7 @@ var bonusQue = [
     ],        
 },
 {
-    question: "What is not an example of a semantic element name in HTML?",
+    question: "BONUS: What is not an example of a semantic element name in HTML?",
     answers: [
         { text: "div", correct: true },
         { text: "section", correct: false },
@@ -215,7 +215,7 @@ var bonusQue = [
     ],        
 },
 {
-    question: "How do I add rounded borders?",
+    question: "BONUS: How do I add rounded borders?",
     answers: [
         { text: "border-radius:", correct: true },
         { text: "border-style:", correct: false },
