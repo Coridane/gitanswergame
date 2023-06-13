@@ -48,8 +48,8 @@ Below the score will be a fun rank.
 
 ## Link
 
-Repo: https://github.com/Coridane/game
-Website: https://coridane.github.io/game
+Repo: https://github.com/Coridane/gitanswergame
+Website: https://coridane.github.io/gitanswergame
 
 Sources
 
