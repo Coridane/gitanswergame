@@ -440,6 +440,7 @@ function game() {
             if (score > 0) {                                    
             localStorage.setItem("topPlayer", playerName)
             localStorage.setItem("topScore", score)
+            localStorage.setItem("topRank", rank)
         }
     }
 }
@@ -588,10 +589,13 @@ function game() {
                 <br>
                 <font size="28px">Top Score</font>
                 <p>
-                The player with the highest score and who most recently played was
+                The most recent high score was <font color="blue">${localStorage.getItem("topPlayer")}</font>
+                </p>
                 <p>
-                <font color="blue">${localStorage.getItem("topPlayer")} with a score of ${localStorage.getItem("topScore")}</font>.
+                with a score of <font color="blue">${localStorage.getItem("topScore")}</font> and the rank of <font color="blue">${localStorage.getItem("topRank")}</font>.
+                </p>
                 <p>
-                <button id="return" onClick="window.location.reload()">Return</button>`
+                <button id="return" onClick="window.location.reload()">Return</button>
+                </p>`
                 }
         }
