@@ -257,6 +257,7 @@ var b02After = bonusAfter[b02ran]
 console.log("Bonus 02 after:", b02After)
 
 var i = 0;
+var j = 0;
 var queNum = 1;
 var totCorrect = 0;        
 var askPlayer = document.querySelector("#quiz");
@@ -498,8 +499,7 @@ function game() {
         }               
         
         // Show a bonus question.
-        function showBonus() {
-            var j = "0";
+        function showBonus() {            
             var currentBonus = bonusQuestions[j];
 
         askPlayer.innerHTML = `
@@ -527,10 +527,16 @@ function game() {
                 timeLeft+= 10;
                 document.getElementById("correct").style.display = "inline";
                 setTimeout(() => { var correct = document.getElementById("correct").style.display = "none"; }, 800);
+                console.log("LOOK AT ME", j)
+                j++;
+                console.log("LOOK AT ME", j)
                 showQuestion();                                
             } else {
                 document.getElementById("incorrect").style.display = "inline";
                 setTimeout(() => { var incorrect = document.getElementById("incorrect").style.display = "none"; }, 800);
+                console.log("LOOK AT ME", j)
+                j++;
+                console.log("LOOK AT ME", j)
                 showQuestion() }
                     }                           
                 }         
