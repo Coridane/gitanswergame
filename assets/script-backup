@@ -1,0 +1,221 @@
+function start() {
+    var sec = 60;
+    function startTimer(){        
+        var timer = setInterval(function(){
+            sec--;
+            document.getElementById('timerDisplay').innerHTML='00:'+sec;
+            if (sec < 0) {
+                clearInterval(timer);
+                alert("Time is up!")
+            }
+        }, 1000);
+    }
+    document.getElementById('incorrect').addEventListener('click', function() {
+        sec -= 5;
+        document.getElementById('timerDisplay').innerHTML='00:'+sec;
+    });
+    startTimer();
+};
+
+}
+document.querySelector("#start").addEventListener("click",beginGame);
+
+for (var i=0, i < 5; i++) {
+    
+}
+
+// START HERE
+
+document.querySelector("#start").addEventListener("click",game);
+
+// An array with all of the possible questions as objects and
+// answer choices as properties.
+var standardQue = [
+    {
+        question: "What is 1+2?",
+        answers: [
+            { text: "1", correct: false },
+            { text: "2", correct: false },
+            { text: "3", correct: true },
+            { text: "4", correct: false },
+        ],        
+    },
+    {
+        question: "What is 2+3?",
+        answers: [
+            { text: "5", correct: true },
+            { text: "6", correct: false },
+            { text: "7", correct: false },
+            { text: "8", correct: false },
+        ],        
+    },
+    {
+        question: "What is 4+5?",
+        answers: [
+            { text: "6", correct: false },
+            { text: "7", correct: false },
+            { text: "8", correct: false },
+            { text: "9", correct: true },
+        ],        
+    },
+    {
+        question: "What is 1*2?",
+        answers: [
+            { text: "1", correct: false },
+            { text: "2", correct: true },
+            { text: "3", correct: false },
+            { text: "4", correct: false },
+        ],        
+    },
+    {
+        question: "What is 2*3?",
+        answers: [
+            { text: "5", correct: false },
+            { text: "6", correct: true },
+            { text: "7", correct: false },
+            { text: "8", correct: false },
+        ],        
+    },
+    {
+        question: "What is 3*4?",
+        answers: [
+            { text: "7", correct: false },
+            { text: "9", correct: false },
+            { text: "12", correct: true },
+            { text: "14", correct: false },
+        ],        
+    },
+    {
+        question: "What is 4*5?",
+        answers: [
+            { text: "5", correct: false },
+            { text: "10", correct: false },
+            { text: "15", correct: false },
+            { text: "20", correct: true },
+        ],        
+    },
+    {
+        question: "What is 5-4",
+        answers: [
+            { text: "3", correct: false },
+            { text: "2", correct: false },
+            { text: "1", correct: true },
+            { text: "0", correct: false },
+        ],        
+    },
+    {
+        question: "What is 4-3",
+        answers: [
+            { text: "1", correct: true },
+            { text: "2", correct: false },
+            { text: "3", correct: false },
+            { text: "4", correct: false },
+        ],        
+    },
+    {
+        question: "What is 3-2?",
+        answers: [
+            { text: "1", correct: true },
+            { text: "2", correct: false },
+            { text: "3", correct: false },
+            { text: "4", correct: false },
+        ],        
+    },
+];
+
+function game() {         
+    // Gathering player's name
+    playerName = (prompt("Enter player name:"));
+    while(playerName == "") {
+        alert("This cannot be skipped.");
+        var playerName = (prompt("Enter player name:"));    }       
+
+        // Randomly pulling 5 standard questions
+        // Splicing original array to avoid duplicates
+        var standardRan01 = ""
+        var standardRan01 = Math.floor(Math.random() * standardQue.length);
+        var que01 = [standardQue[standardRan01]]
+        console.log(que01)
+        standardQue.splice(standardRan01,1);
+        console.log(standardQue)
+
+        var standardRan02 = ""
+        var standardRan02 = Math.floor(Math.random() * standardQue.length);
+        var que02 = [standardQue[standardRan02]]
+        console.log(que02)
+        standardQue.splice(standardRan02,1);
+        console.log(standardQue)
+
+        var standardRan03 = ""
+        var standardRan03 = Math.floor(Math.random() * standardQue.length);
+        var que03 = [standardQue[standardRan03]]
+        console.log(que03)
+        standardQue.splice(standardRan03,1);
+        console.log(standardQue)
+
+        var standardRan04 = ""
+        var standardRan04 = Math.floor(Math.random() * standardQue.length);
+        var que04 = [standardQue[standardRan04]]
+        console.log(que04)
+        standardQue.splice(standardRan04,1);
+        console.log(standardQue)
+
+        var standardRan05 = ""
+        var standardRan05 = Math.floor(Math.random() * standardQue.length);
+        var que05 = [standardQue[standardRan05]]
+        console.log(que05)
+        standardQue.splice(standardRan05,1);
+        console.log(standardQue)
+
+        quizQuestions = que01.concat(que02, que03, que04, que05);
+        console.log(quizQuestions)
+
+        var questionContainer = document.querySelector(".questions");
+        var resultsContainer = document.querySelector(".results");
+        var restartButton = document.querySelector("#restart");
+        var totalSpan = document.querySelector("#total");
+        var correctSpan = document.querySelector("#correct");
+        var currentQuestionIndex = 0;
+        var numCorrect = 0;        
+
+    function showQuestion() {
+        console.log("Hi");
+        var currentQuestion = quizQuestions[currentQuestionIndex];    
+        questionContainer.innerHTML = `
+            <p>${currentQuestion.question}</p>
+            <ul>
+                ${currentQuestion.answers.map(answer => `
+                    <li>
+                        <button class="answer-btn">${answer.text}</button>
+                    </li>
+                `).join("")}
+            </ul>
+        `;
+        var answerButtons = document.querySelectorAll(".answer-btn");
+        answerButtons.forEach(button => {
+            button.addEventListener("click", checkAnswer);
+        })
+    }
+
+    function checkAnswer(e) {
+        console.log(quizQuestions)
+        var selectedButton = e.target;
+        var isCorrect = quizQuestions[currentQuestionIndex].answers.find(answer => answer.text === selectedButton.textContent).correct;
+        if (isCorrect) {
+            numCorrect++;        
+        }
+        currentQuestionIndex++;
+        if (currentQuestionIndex === quizQuestions.length) {
+            showResults();
+        } else {
+            showQuestion();
+        }    
+    }
+
+    function showResults() {
+        questionContainer.style.display = "none";
+        resultsContainer.style.display = "block";
+        totalSpan.textContent = quizQuestions.length;
+        correctSpan.textContent = numCorrect;    
+    }
+}
