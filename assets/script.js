@@ -266,8 +266,8 @@ function game() {
     // Gathering player's name
     playerName = (prompt("Enter player name:"));
     while(playerName == "") {
-        alert("This cannot be skipped.");
-        var playerName = (prompt("Enter player name:"));    
+        window.alert("This cannot be skipped.");
+        playerName = (prompt("Enter player name:"));    
     }
         console.log(playerName)
         if (playerName === null) {
